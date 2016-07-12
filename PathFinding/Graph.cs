@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace PathFinding
 {
     using Point = Tuple<double, double>;
