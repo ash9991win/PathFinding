@@ -1,0 +1,42 @@
+﻿<Window x:Class="PathFinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PathFinding"
+        mc:Ignorable="d"
+        Title="PathFinder" Height="750" Width="750">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" x:Name="BrushesMenu">
+            <MenuItem Header="Brushes">
+                <MenuItem Header="Start" x:Name="StartMenu"></MenuItem>
+                <MenuItem Header="Destination" x:Name="DestinationMenu"></MenuItem>
+                <MenuItem Header="Obstacle Brush" x:Name="ObstacleMenu"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Reset Grid" x:Name="Reset" Click="ResetTiles"></MenuItem>
+                <MenuItem Header="Find Path" x:Name="FindPath" Click="ResetTiles">
+                    <MenuItem Header="Breadth First Search" Click="FindPathWithBFS"></MenuItem>
+                    <MenuItem Header="Greedy First Search" Click="FindPathWithGreedy">
+                        <MenuItem Header="Euclidian Heuristic" Click="FindPathWithGreedy" x:Name="Euclidian"></MenuItem>
+                        <MenuItem Header="Manhattan Heuristic" Click="FindPathWithGreedy" x:Name="Manhattan"></MenuItem>
+
+                    </MenuItem>
+                    <MenuItem Header="Djikistra's Search" Click="FindPathWithDjik"></MenuItem>
+                    <MenuItem Header="A* Search">
+                        <MenuItem Header="Euclidian Heuristic" Click="FindPathWithAStar" x:Name="EuclidianAStar"></MenuItem>
+                        <MenuItem Header="Manhattan Heuristic" Click="FindPathWithAStar" x:Name="ManhattanAStar"></MenuItem>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <StackPanel DockPanel.Dock="Left">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" x:Name="TileScroller">
+    <WrapPanel x:Name="GridWrap">
+    </WrapPanel>
+             
+            </ScrollViewer>
+        </StackPanel>  
+
+    </DockPanel>
+</Window>
